@@ -11,7 +11,7 @@ permissions: read-all
 jobs:
   benchmark:
     name: Compile-Time Benchmarks
-    runs-on: ubuntu-latest
+    runs-on: ${{ github.event_name == 'push' && 'oracle-bare-metal-64cpu-1024gb-x86-64-ubuntu-24' || 'ubuntu-latest' }}
     steps:
       - name: Checkout code
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8  # v6.0.1
